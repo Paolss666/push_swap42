@@ -12,19 +12,6 @@
 
 #include "push_swap.h"
 
-t_node *getnode(int data)
-{
-  t_node  *new;
-
-  new = malloc(sizeof(t_node));
-  if (new == NULL)
-    return (NULL);
-  new->data = data;
-  new->next = NULL;
-  new->prev = NULL;
-  return (new);
-}
-
 t_stack *stack_init(void)
 {
   t_stack *stack;
@@ -36,16 +23,16 @@ t_stack *stack_init(void)
   return (stack);
 }
 
-void  *push_top(t_stack *list, int data)
+void  push_top(t_stack *list, int data)
 {
-  t_node *new;
-  t_node *oldtop;
+  t_node  *new;
+  t_node  *oldtop;
 
   new = getnode(data);
   if (list->top == NULL)
   {
-      list->top = new;
-      list->bottom = new;
+    list->top = new;
+    list->bottom = new;
   }
   else
   {
@@ -56,3 +43,35 @@ void  *push_top(t_stack *list, int data)
   }
   list->size++;
 }
+
+void printStack(t_stack* list) {
+  t_node* current = list->top;
+  while (current != NULL) {
+    printf("%d ", current->data);
+    current = current->prev;
+  }
+  printf("\n");
+}
+
+int main(void) {
+  t_stack list;
+  list.top = NULL;
+  list.bottom = NULL;
+  list.size = 0;
+
+  push_top(&list, 1);
+  push_top(&list, 2);
+  push_top(&list, 3);
+  push_top(&list, 4);
+
+  printf("Stack contents: ");
+  printStack(&list);
+
+  return 0;
+}
+
+
+
+
+
+

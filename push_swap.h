@@ -18,15 +18,19 @@
 typedef struct s_node
 {
   int            data;
-  struct s_node *prev;
   struct s_node *next;
+  struct s_node *prev;
 }             t_node;
 
 typedef struct s_stack
 {
-  int           size;
-  struct s_node *top;
-  struct s_node *bottom;
+  int         size;
+  struct s_node   *top;
+  struct s_node   *bottom;
 }               t_stack;
 
+t_stack   *stack_init(void);
+t_node  *getnode(int data);
+void      error(void);
+int       ft_atoi2(char *str, int len);
 #endif
