@@ -30,7 +30,12 @@ typedef struct s_stack
 }               t_stack;
 
 t_stack   *stack_init(void);
-t_node  *getnode(int data);
+t_node    *getnode(int data);
 void      error(void);
 int       ft_atoi2(char *str, int len);
+void      push_top(t_stack *list, int data);
+void      pop_top(t_stack *list);
+void      push_bottom(t_stack *list, int data);
+void      pop_bottom(t_stack *list);
+void      clear(t_stack *list);
 #endif

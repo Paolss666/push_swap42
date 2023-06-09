@@ -24,3 +24,9 @@ t_node  *getnode(int data)
   new->prev = NULL;
   return (new);
 }
+void  clear(t_stack *list)
+{
+  while (list->size)
+    pop_top(list);
+  free(list);
+}
